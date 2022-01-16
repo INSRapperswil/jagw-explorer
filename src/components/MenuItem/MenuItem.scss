@@ -1,0 +1,13 @@
+.MenuItem {
+  margin: 0rem 5rem;
+
+  & > a {
+    color: var(--black);
+    text-decoration: none;
+    font-size: 1.3rem;
+
+    &:hover {
+      color: var(--theme);
+    }
+  }
+}
