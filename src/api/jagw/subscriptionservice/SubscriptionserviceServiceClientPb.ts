@@ -13,7 +13,7 @@
 
 import * as grpcWeb from 'grpc-web';
 
-import * as subscriptionservice_subscriptionservice_pb from './subscriptionservice_pb';
+import * as subscriptionservice_subscriptionservice_pb from '../subscriptionservice/subscriptionservice_pb';
 
 
 export class SubscriptionServiceClient {

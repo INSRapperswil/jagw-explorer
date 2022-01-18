@@ -1,0 +1,44 @@
+.CodeBlock {
+  margin: 3rem 0rem;
+
+  &-Header {
+    display: flex;
+    justify-content: space-between;
+    margin: 0rem 2rem;
+    font-size: 1.2rem;
+  }
+
+  &-Title {
+    font-weight: bold;
+    padding: 0.5rem 0rem;
+  }
+
+  &-DownloadBtn {
+    background-color: var(--lighter-grey);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+
+    & > svg {
+      margin-right: 0.5rem;
+    }
+
+    &:hover {
+      background-color: var(--theme);
+      color: var(--white);
+      cursor: pointer;
+    }
+  }
+
+  & pre {
+    text-align: start;
+    margin: 1rem 2rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: var(--lighter-grey);
+    overflow-x: auto;
+
+    & code {
+      word-wrap: break-word;
+    }
+  }
+}

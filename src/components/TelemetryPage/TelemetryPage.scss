@@ -1,5 +1,9 @@
 .TelemetryPage {
   &-Intro {
     font-size: 1.2rem;
+
+    & > p:not(:last-child) {
+      margin-bottom: 1rem;
+    }
   }
 }

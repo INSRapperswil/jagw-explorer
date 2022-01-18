@@ -1263,7 +1263,7 @@ proto.jagw.MeasurementColumn.toObject = function(includeInstance, msg) {
     name: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
     type: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f,
     influxType: (f = jspb.Message.getField(msg, 3)) == null ? undefined : f,
-    lastValue: (f = jspb.Message.getField(msg, 4)) == null ? undefined : f
+    lastValueStringyfied: (f = jspb.Message.getField(msg, 4)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -1314,7 +1314,7 @@ proto.jagw.MeasurementColumn.deserializeBinaryFromReader = function(msg, reader)
       break;
     case 4:
       var value = /** @type {string} */ (reader.readString());
-      msg.setLastValue(value);
+      msg.setLastValueStringyfied(value);
       break;
     default:
       reader.skipField();
@@ -1485,10 +1485,10 @@ proto.jagw.MeasurementColumn.prototype.hasInfluxType = function() {
 
 
 /**
- * required string last_value = 4;
+ * required string last_value_stringyfied = 4;
  * @return {string}
  */
-proto.jagw.MeasurementColumn.prototype.getLastValue = function() {
+proto.jagw.MeasurementColumn.prototype.getLastValueStringyfied = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
@@ -1497,7 +1497,7 @@ proto.jagw.MeasurementColumn.prototype.getLastValue = function() {
  * @param {string} value
  * @return {!proto.jagw.MeasurementColumn} returns this
  */
-proto.jagw.MeasurementColumn.prototype.setLastValue = function(value) {
+proto.jagw.MeasurementColumn.prototype.setLastValueStringyfied = function(value) {
   return jspb.Message.setField(this, 4, value);
 };
 
@@ -1506,7 +1506,7 @@ proto.jagw.MeasurementColumn.prototype.setLastValue = function(value) {
  * Clears the field making it undefined.
  * @return {!proto.jagw.MeasurementColumn} returns this
  */
-proto.jagw.MeasurementColumn.prototype.clearLastValue = function() {
+proto.jagw.MeasurementColumn.prototype.clearLastValueStringyfied = function() {
   return jspb.Message.setField(this, 4, undefined);
 };
 
@@ -1515,7 +1515,7 @@ proto.jagw.MeasurementColumn.prototype.clearLastValue = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.jagw.MeasurementColumn.prototype.hasLastValue = function() {
+proto.jagw.MeasurementColumn.prototype.hasLastValueStringyfied = function() {
   return jspb.Message.getField(this, 4) != null;
 };
 

@@ -112,8 +112,8 @@ export class MeasurementColumn extends jspb.Message {
   getInfluxType(): string;
   setInfluxType(value: string): MeasurementColumn;
 
-  getLastValue(): string;
-  setLastValue(value: string): MeasurementColumn;
+  getLastValueStringyfied(): string;
+  setLastValueStringyfied(value: string): MeasurementColumn;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MeasurementColumn.AsObject;
@@ -128,7 +128,7 @@ export namespace MeasurementColumn {
     name: string,
     type: string,
     influxType: string,
-    lastValue: string,
+    lastValueStringyfied: string,
   }
 }
 

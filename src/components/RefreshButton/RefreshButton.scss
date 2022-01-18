@@ -1,0 +1,35 @@
+.RefreshButton {
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:disabled {
+    cursor: default;
+  }
+
+  &.rotate1 {
+    animation: rotate1 0.5s ease-in 0s;
+  }
+
+  &.rotate2 {
+    animation: rotate2 0.5s ease-out 0s;
+  }
+}
+
+@keyframes rotate1 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    rotate: (360deg);
+  }
+}
+
+@keyframes rotate2 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    rotate: (360deg);
+  }
+}

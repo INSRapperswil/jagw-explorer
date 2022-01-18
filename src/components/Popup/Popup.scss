@@ -1,0 +1,40 @@
+.Popup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background-color: #0008;
+
+  &-Window {
+    position: absolute;
+    top: calc(50% - 10rem);
+    left: calc(50% - 20rem);
+    width: 40rem;
+    background-color: var(--lighter-grey);
+    padding: 2rem 3rem;
+    border-radius: 1rem;
+  }
+
+  &-Title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  &-Message {
+    font-size: 1.1rem;
+    margin: 2rem 0rem;
+  }
+
+  &-Btn {
+    border-radius: 0.5rem;
+    background-color: var(--dark-grey);
+    padding: 0.5rem 1rem;
+
+    &:hover {
+      cursor: pointer;
+      background-color: var(--theme);
+    }
+  }
+}

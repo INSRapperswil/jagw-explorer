@@ -13,7 +13,7 @@
 
 import * as grpcWeb from 'grpc-web';
 
-import * as requestservice_requestservice_pb from './requestservice_pb';
+import * as requestservice_requestservice_pb from '../requestservice/requestservice_pb';
 
 
 export class RequestServiceClient {

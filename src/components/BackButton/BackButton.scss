@@ -1,0 +1,19 @@
+.BackButton {
+  display: flex;
+  align-items: flex-start;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: var(--black);
+  text-decoration: none;
+  margin-top: -2rem;
+  margin-bottom: 3rem;
+
+  &:hover {
+    color: var(--theme);
+  }
+
+  &-Icon {
+    margin-right: 1rem;
+    font-size: 2rem;
+  }
+}

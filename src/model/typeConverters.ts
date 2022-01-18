@@ -41,11 +41,16 @@ const createMeasurementColumns = (
   const columns = new Array<MeasurementColumn>(responseList.length);
 
   for (let i = 0; i < responseList.length; i++) {
+    let stringValue: string = responseList[i].getLastValueStringyfied();
+
     columns[i] = {
       name: responseList[i].getName(),
       type: responseList[i].getType(),
       influxType: responseList[i].getInfluxType(),
-      lastValue: responseList[i].getLastValue(),
+      lastValue:
+        stringValue == ''
+          ? undefined
+          : JSON.parse(responseList[i].getLastValueStringyfied()),
     };
   }
 

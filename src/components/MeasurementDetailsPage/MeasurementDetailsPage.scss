@@ -1,0 +1,49 @@
+.MeasurementDetailsPage {
+  &-Header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+  }
+
+  &-TableHeader {
+    & > .TableHeader-RightTitle {
+      width: 10rem;
+    }
+  }
+
+  &-CenteredTitle {
+    width: fit-content;
+    align-self: center;
+  }
+
+  &-Title.PageTitle {
+    font-size: 1.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--lighter-grey);
+  }
+
+  &-UpdateInfo {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &-TimestampTitle {
+    font-style: italic;
+  }
+
+  &-Timestamp {
+    margin: 0rem 1rem 0rem 2rem;
+  }
+
+  &-Properties {
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--black);
+    margin-bottom: 3rem;
+  }
+
+  &-ErrorMessage {
+    margin-top: 3rem;
+  }
+}

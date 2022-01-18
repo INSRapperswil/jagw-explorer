@@ -1,6 +1,6 @@
 import * as jspb from 'google-protobuf'
 
-import * as core_base_pb from './base_pb';
+import * as core_base_pb from '../core/base_pb';
 
 
 export class LsNode extends jspb.Message {

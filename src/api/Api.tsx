@@ -1,11 +1,13 @@
 import { RpcError } from 'grpc-web';
 
 import { Measurement, MeasurementDetails } from '../model';
+import { ErrorMessage } from '../model/ErrorMessage';
 import {
   createMeasurementDetails,
   createMeasurements,
 } from '../model/typeConverters';
 
+import { getErrorMessage } from './Errors';
 import { RequestServiceClient } from './jagw/requestservice/RequestserviceServiceClientPb';
 import {
   MeasurementDetailsRequest,
@@ -14,10 +16,16 @@ import {
   MeasurementsResponse,
 } from './jagw/requestservice/requestservice_pb';
 
-const rsClient = new RequestServiceClient('http://localhost:8080', null, null);
+const server =
+  'http://' +
+  process.env.REACT_APP_JAGW_SERVER_ADDRESS +
+  ':' +
+  process.env.REACT_APP_JAGW_REQUEST_SERVICE_PORT;
+
+const rsClient = new RequestServiceClient(server, null, null);
 
 export const FetchMeasurements = (
-  callback: (measurements: Measurement[]) => void,
+  callback: (measurements: Measurement[], err?: ErrorMessage) => void,
 ): void => {
   const request = new MeasurementsRequest();
 
@@ -25,15 +33,23 @@ export const FetchMeasurements = (
     request,
     null,
     (err: RpcError, res: MeasurementsResponse): void => {
-      if (err) console.log(err);
-      callback(createMeasurements(res));
+      if (err) {
+        let errorMessage = getErrorMessage(err);
+        console.error(errorMessage);
+        callback([], errorMessage);
+      } else {
+        callback(createMeasurements(res), undefined);
+      }
     },
   );
 };
 
 export const FetchMeasurementDetails = (
   measurementName: string,
-  callback: (measurementDetails: MeasurementDetails) => void,
+  callback: (
+    measurementDetails: MeasurementDetails,
+    err?: ErrorMessage,
+  ) => void,
 ): void => {
   const request = new MeasurementDetailsRequest();
   request.setName(measurementName);
@@ -42,8 +58,14 @@ export const FetchMeasurementDetails = (
     request,
     null,
     (err: RpcError, res: MeasurementDetailsResponse): void => {
-      if (err) console.log(err);
-      callback(createMeasurementDetails(res));
+      if (err) {
+        let errorMessage = getErrorMessage(err);
+        console.error(errorMessage);
+        callback({} as MeasurementDetails, errorMessage);
+      } else {
+        console.log(res);
+        callback(createMeasurementDetails(res));
+      }
     },
   );
 };

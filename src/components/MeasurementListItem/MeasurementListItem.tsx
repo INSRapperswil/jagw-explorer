@@ -1,4 +1,5 @@
 import { Measurement } from '../../model';
+import { getHumanReadableTimestamp } from '../../utils/dateHelpers';
 import './MeasurementListItem.scss';
 
 type MeasurementListItemProps = {
@@ -9,18 +10,16 @@ const MeasurementListItem = (props: MeasurementListItemProps): JSX.Element => {
   const { measurement } = props;
 
   return (
-    <a href={'/telemetry/?' + measurement.name} className="MeasurementListItem">
+    <a
+      href={'/telemetry/' + encodeURIComponent(measurement.name)}
+      className="MeasurementListItem"
+    >
       <div className="MeasurementListItem-Name">{measurement.name}</div>
       <div className="MeasurementListItem-Timestamp">
         {getHumanReadableTimestamp(measurement.timestampLatestMeasurement)}
       </div>
     </a>
   );
-};
-
-const getHumanReadableTimestamp = (timestamp: number): string => {
-  var date = new Date(timestamp * 1000);
-  return date.toLocaleString();
 };
 
 export default MeasurementListItem;

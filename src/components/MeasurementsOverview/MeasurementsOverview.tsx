@@ -1,16 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSyncAlt } from '@fortawesome/free-solid-svg-icons';
 
 import { FetchMeasurements } from '../../api/Api';
 import { Measurement } from '../../model';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import MeasurementListItem from '../MeasurementListItem/MeasurementListItem';
 import './MeasurementsOverview.scss';
+import RefreshButton from '../RefreshButton/RefreshButton';
+import TableHeader from '../TableHeader/TableHeader';
+import SearchBar from '../SearchBar/SearchBar';
+import { ErrorMessage } from '../../model/ErrorMessage';
+import { PopupProps, withPopup } from '../../utils/hoc/popupHoc';
+import Popup from '../Popup/Popup';
 
-const MeasurementsOverview = (): JSX.Element => {
+type MeasurementsOverviewProps = PopupProps & {};
+
+const MeasurementsOverview = (
+  props: MeasurementsOverviewProps,
+): JSX.Element => {
+  const { openPopup, closePopup } = props;
+
   const [measurements, setMeasurements] = useState<Measurement[]>([]);
-  const [showLoadingSpinner, setShowLoadingSpinner] = useState<boolean>();
+  const [showLoadingSpinner, setShowLoadingSpinner] = useState<boolean>(false);
   const [selection, setSelection] = useState<Measurement[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [refreshBtnRef, setRefreshBtnRef] =
@@ -19,7 +29,6 @@ const MeasurementsOverview = (): JSX.Element => {
   useEffect(() => {
     filterBySearch();
     setShowLoadingSpinner(false);
-    enableRefreshBtn(true);
   }, [measurements]);
 
   useEffect(() => {
@@ -31,36 +40,22 @@ const MeasurementsOverview = (): JSX.Element => {
     fetchMeasurements();
   }, []);
 
-  const refreshMeasurements = (): void => {
-    enableRefreshBtn(false);
-    fetchMeasurements();
-    refreshBtnRef?.current?.classList.toggle('rotate1');
-    setTimeout(() => {
-      refreshBtnRef?.current?.classList.toggle('rotate2');
-      setTimeout(() => {
-        if (refreshBtnRef?.current) {
-          refreshBtnRef.current.classList.toggle('rotate1');
-          refreshBtnRef.current.classList.toggle('rotate2');
-        }
-      }, 500);
-    }, 500);
-  };
-
   const fetchMeasurements = (): void => {
     setShowLoadingSpinner(true);
-    FetchMeasurements((measurements: Measurement[]) => {
-      setMeasurements(measurements);
-    });
-  };
-
-  const enableRefreshBtn = (value: boolean): void => {
-    if (refreshBtnRef?.current) {
-      if (value) {
-        refreshBtnRef.current.removeAttribute('disabled');
+    FetchMeasurements((measurements: Measurement[], err?: ErrorMessage) => {
+      if (err) {
+        openPopup(
+          <Popup
+            title={err.title}
+            message={err.userMessage}
+            onClose={closePopup}
+          />,
+        );
+        setMeasurements([]);
       } else {
-        refreshBtnRef.current.setAttribute('disabled', 'true');
+        setMeasurements(measurements);
       }
-    }
+    });
   };
 
   const filterBySearch = (): void => {
@@ -79,33 +74,25 @@ const MeasurementsOverview = (): JSX.Element => {
 
   return (
     <div className="MeasurementsOverview">
-      <div className="MeasurementsOverview-SearchBar">
-        <div className="MeasurementsOverview-SearchBarTitle">Search</div>
-        <input
-          type="search"
-          onChange={(event) => setSearchTerm(event.target.value)}
-          value={searchTerm}
+      <SearchBar onChange={setSearchTerm} currentValue={searchTerm} />
+      <TableHeader leftTitle="Measurement" rightTitle="Last Update">
+        <RefreshButton
+          CN={'MeasurementsOverview-RefreshBtn'}
+          onClick={fetchMeasurements}
+          btnRef={refreshBtnRef}
+          isDisabled={showLoadingSpinner}
         />
-      </div>
-      <div className="MeasurementsOverview-Header">
-        <div className="MeasurementsOverview-MeasurementTitle">Measurement</div>
-        <div className="MeasurementsOverview-TimestampTitle">
-          <span>Last Update</span>
-          <button
-            className="MeasurementsOverview-RefreshBtn"
-            onClick={refreshMeasurements}
-            ref={refreshBtnRef}
-          >
-            <FontAwesomeIcon icon={faSyncAlt} />
-          </button>
-        </div>
-      </div>
+      </TableHeader>
       {showLoadingSpinner ? (
         <LoadingSpinner />
       ) : measurements.length == 0 ? (
-        <div>No Measurements found.</div>
+        <div className="MeasurementsOverview-ErrorMessage">
+          No Measurements were found.
+        </div>
       ) : selection.length == 0 ? (
-        <div>No Measurements found that match your query.</div>
+        <div className="MeasurementsOverview-ErrorMessage">
+          No Measurements were found that match your query.
+        </div>
       ) : (
         selection.map((m) => {
           return <MeasurementListItem key={m.name} measurement={m} />;
@@ -115,4 +102,4 @@ const MeasurementsOverview = (): JSX.Element => {
   );
 };
 
-export default MeasurementsOverview;
+export default withPopup(MeasurementsOverview);

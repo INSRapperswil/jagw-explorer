@@ -15,7 +15,7 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
-var core_base_pb = require('./base_pb.js');
+var core_base_pb = require('../core/base_pb.js');
 goog.object.extend(proto, core_base_pb);
 goog.exportSymbol('proto.jagw.LsLink', null, global);
 goog.exportSymbol('proto.jagw.LsNode', null, global);

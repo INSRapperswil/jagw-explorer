@@ -1,0 +1,21 @@
+.SearchBar {
+  width: 50rem;
+  margin: 3rem auto;
+  margin-top: 0rem;
+
+  &-Input {
+    width: 100%;
+    height: 2rem;
+    line-height: 2rem;
+    background-color: var(--lighter-grey);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  &-Title {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+}
