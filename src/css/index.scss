@@ -3,8 +3,11 @@
 @import 'settings';
 @import 'global';
 
+html {
+  font-size: 62.5%;
+}
+
 * {
-  font-size: 16px;
   box-sizing: border-box;
 
   &::selection {
@@ -14,6 +17,7 @@
 }
 
 body {
+  font-size: 1.8rem;
   overflow-x: hidden;
   background-color: var(--light-grey);
   color: var(--black);

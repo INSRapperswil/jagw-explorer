@@ -1,17 +1,17 @@
 .Header {
   display: flex;
-  height: 8rem;
+  height: 14rem;
   align-items: center;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 
   &-LogoContainer {
     position: absolute;
-    margin-left: 4rem;
-    height: 4rem;
+    margin-left: 8rem;
+    height: 7rem;
   }
 
   &-Menu {
-    margin: 0rem 20rem;
+    margin: 0rem 35rem;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -9,28 +9,27 @@
 
   &-Window {
     position: absolute;
-    top: calc(50% - 10rem);
-    left: calc(50% - 20rem);
-    width: 40rem;
+    top: calc(50% - 20rem);
+    left: calc(50% - 30rem);
+    width: 60rem;
     background-color: var(--lighter-grey);
-    padding: 2rem 3rem;
-    border-radius: 1rem;
+    padding: 4rem 6rem;
+    border-radius: 2rem;
   }
 
   &-Title {
-    font-size: 1.5rem;
+    font-size: 2.2rem;
     font-weight: bold;
   }
 
   &-Message {
-    font-size: 1.1rem;
-    margin: 2rem 0rem;
+    margin: 4rem 0rem;
   }
 
   &-Btn {
-    border-radius: 0.5rem;
+    border-radius: 1rem;
     background-color: var(--dark-grey);
-    padding: 0.5rem 1rem;
+    padding: 1rem 2rem;
 
     &:hover {
       cursor: pointer;

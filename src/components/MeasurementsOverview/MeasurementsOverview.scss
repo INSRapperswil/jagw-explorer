@@ -1,32 +1,14 @@
 .MeasurementsOverview {
-  margin-top: 5rem;
-
-  &-Header {
-    display: flex;
-    width: 100%;
-    font-weight: bold;
-    font-size: 1.2rem;
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid var(--black);
-  }
-
-  &-MeasurementTitle {
-    flex-grow: 1;
-  }
-
-  &-TimestampTitle {
-    position: relative;
-    width: 20rem;
-  }
+  font-size: inherit;
+  margin-top: 8rem;
 
   &-RefreshBtn {
     position: absolute;
     top: 0;
-    right: 1rem;
+    right: 1.8rem;
   }
 
   &-ErrorMessage {
-    margin-top: 3rem;
+    margin-top: 5rem;
   }
 }
