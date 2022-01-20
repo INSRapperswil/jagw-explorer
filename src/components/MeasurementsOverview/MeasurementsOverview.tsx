@@ -62,7 +62,7 @@ const MeasurementsOverview = (
     if (searchTerm == '') {
       setSelection(measurements);
     } else {
-      var filtered = new Array<Measurement>();
+      let filtered = new Array<Measurement>();
       measurements.forEach((measurement) => {
         if (measurement.name.toLowerCase().includes(searchTerm.toLowerCase())) {
           filtered.push(measurement);

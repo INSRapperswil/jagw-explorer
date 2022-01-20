@@ -103,7 +103,7 @@ const MeasurementDetailsPage = (
     if (searchTerm == '') {
       setSelection(measurementDetails.columns);
     } else {
-      var filtered = new Array<MeasurementColumn>();
+      let filtered = new Array<MeasurementColumn>();
       measurementDetails.columns.forEach((column) => {
         if (column.name.toLowerCase().includes(searchTerm.toLowerCase())) {
           filtered.push(column);
