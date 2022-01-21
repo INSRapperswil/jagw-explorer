@@ -28,14 +28,15 @@ strong {
 
 p {
   line-height: 1.4em;
-  a {
-    color: var(--theme);
-    text-decoration: none;
-  }
+}
 
-  a:hover {
-    text-decoration: underline;
-  }
+a {
+  color: var(--theme);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 .input-list > li {
@@ -43,9 +44,10 @@ p {
 }
 
 .Content {
-  margin: auto;
+  flex-grow: 1;
+  margin: 0rem auto;
   width: 80%;
-  max-width: 120rem;
+  max-width: 140rem;
 }
 
 .PageTitle {
@@ -68,4 +70,13 @@ p {
     background-color: var(--theme);
     border-radius: 1rem;
   }
+}
+
+p {
+  margin: auto;
+  max-width: 100rem;
+}
+
+p:not(:last-child) {
+  margin-bottom: 2rem;
 }

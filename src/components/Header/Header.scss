@@ -1,20 +1,22 @@
 .Header {
+  font-size: inherit;
   display: flex;
   height: 14rem;
   align-items: center;
   margin-bottom: 4rem;
+  flex-shrink: 0;
 
-  &-LogoContainer {
-    position: absolute;
-    margin-left: 8rem;
+  &-LogoContainer,
+  &-Spacer {
     height: 7rem;
+    width: 30rem;
+    flex-shrink: 0;
   }
 
   &-Menu {
-    margin: 0rem 35rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    flex-grow: 1;
   }
 }

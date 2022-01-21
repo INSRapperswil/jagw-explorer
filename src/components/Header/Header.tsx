@@ -12,8 +12,8 @@ const Header = (): JSX.Element => {
         <MenuItem name="Home" url="/" />
         <MenuItem name="Topology" url="/topology" />
         <MenuItem name="Telemetry" url="/telemetry" />
-        <MenuItem name="About" url="/about" />
       </div>
+      <div className="Header-Spacer"></div>
     </div>
   );
 };

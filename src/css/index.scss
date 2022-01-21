@@ -21,4 +21,11 @@ body {
   overflow-x: hidden;
   background-color: var(--light-grey);
   color: var(--black);
+  height: 100vh;
+  min-height: 100vh;
+}
+
+#root {
+  height: inherit;
+  min-height: inherit;
 }

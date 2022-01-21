@@ -1,6 +1,7 @@
 import './TopologyPage.scss';
 import jagwLogo from '../../assets/jagw-logo.svg';
 import githubLogo from '../../assets/github-logo.png';
+import ImgLink from '../ImgLink/ImgLink';
 
 const TopologyPage = (): JSX.Element => {
   return (
@@ -29,34 +30,22 @@ const TopologyPage = (): JSX.Element => {
           .
         </p>
         <div className="TopologyPage-ExternalLinks">
-          <a
-            className="TopologyPage-Link"
-            href="https://jalapeno-api-gateway.github.io/jagw-docs/docs/api/messages"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <img
-              className="TopologyPage-LinkImg"
-              src={jagwLogo}
-              alt="Jalapeño API Gateway Logo"
-            />
-            <div className="TopologyPage-LinkTitle">Official Documentation</div>
-            <div className="TopologyPage-LinkText">Protobuf Messages</div>
-          </a>
-          <a
-            className="TopologyPage-Link"
-            rel="noopener noreferrer"
-            href="https://github.com/jalapeno-api-gateway/protorepo"
-            target="_blank"
-          >
-            <img
-              className="TopologyPage-LinkImg"
-              src={githubLogo}
-              alt="GitHub Logo"
-            />
-            <div className="TopologyPage-LinkTitle">GitHub</div>
-            <div className="TopologyPage-LinkText">Protobuf Repository</div>
-          </a>
+          <ImgLink
+            title="Official Documentation"
+            subtitle="Protobuf Messages"
+            link="https://jalapeno-api-gateway.github.io/jagw-docs/docs/api/messages"
+            imgPath={jagwLogo}
+            alt="Jalapeño API Gateway Logo"
+            openInNewTab={true}
+          />
+          <ImgLink
+            title="GitHub"
+            subtitle="Protobuf Repository"
+            link="https://github.com/jalapeno-api-gateway/protorepo"
+            imgPath={githubLogo}
+            alt="GitHub Logo"
+            openInNewTab={true}
+          />
         </div>
       </div>
     </div>

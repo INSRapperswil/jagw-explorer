@@ -1,7 +1,6 @@
 import react from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import AboutPage from './components/AboutPage/AboutPage';
 import Home from './components/Home/Home';
 import MeasurementDetailsPage from './components/MeasurementDetailsPage/MeasurementDetailsPage';
 import TelemetryPage from './components/TelemetryPage/TelemetryPage';
@@ -17,7 +16,6 @@ const RouteHandler = (): JSX.Element => {
         element={<MeasurementDetailsPage />}
       />
       <Route path="/telemetry" element={<TelemetryPage />} />
-      <Route path="/about" element={<AboutPage />} />
     </Routes>
   );
 };

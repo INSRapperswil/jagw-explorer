@@ -1,29 +1,40 @@
+import './Home.scss';
+import topologyIcon from '../../assets/network-topology-icon.svg';
+import telemetryIcon from '../../assets/performance-icon.svg';
+import ImgLink from '../ImgLink/ImgLink';
+
 const Home = (): JSX.Element => {
   return (
-    <div className="TopologyPage Content">
+    <div className="Home Content">
       <div className="PageTitle">JAGW Explorer</div>
-      <div className="TopologyPage-Intro">
+      <div className="Home-Intro">
+        <p>Welcome to the Jalapeño API Gateway Explorer.</p>
         <p>
-          The available topology data in the Jalapeño API Gateway does not
-          change dynamically. What topology data is available and how it is
-          structured can be gathered from the protobuf definitions either in the{' '}
+          This application is built for SR-App developers. It provides a way to
+          explore the data that is available through the{' '}
           <a
-            href="https://jalapeno-api-gateway.github.io/jagw-docs/docs/api/messages"
             rel="noopener noreferrer"
+            href="https://jalapeno-api-gateway.github.io/jagw-docs/"
             target="_blank"
           >
-            official documentation
-          </a>{' '}
-          or directly from the{' '}
-          <a
-            href="https://github.com/jalapeno-api-gateway/protorepo"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            base repository
+            Jalapeño API Gateway
           </a>
           .
         </p>
+        <div className="Home-ExternalLinks">
+          <ImgLink
+            title="Topology Data"
+            link="/topology"
+            alt="Topology Icon"
+            imgPath={topologyIcon}
+          />
+          <ImgLink
+            title="Telemetry Data"
+            link="/telemetry"
+            alt="Telemetry Icon"
+            imgPath={telemetryIcon}
+          />
+        </div>
       </div>
     </div>
   );
