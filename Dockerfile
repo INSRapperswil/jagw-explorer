@@ -1,6 +1,6 @@
+FROM node:14-alpine AS build_base
 LABEL maintainer="Michel Bongard"
 
-FROM node:14-alpine AS build_base
 ENV NODE_ENV production
 
 WORKDIR /app
