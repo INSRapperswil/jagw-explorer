@@ -1,3 +1,5 @@
+LABEL maintainer="Michel Bongard"
+
 FROM node:14-alpine AS build
 ENV NODE_ENV production
 
