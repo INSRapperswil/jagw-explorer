@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
+  height: inherit;
   width: 36rem;
   margin: 0rem 3rem;
   text-decoration: none;
@@ -15,15 +15,20 @@
     background-color: var(--lighter-grey);
   }
 
-  &-Img,
-  & svg {
+  &-Img {
     width: 100%;
-    height: 100%;
-    object-fit: contain;
+    height: 10rem;
+
     margin-bottom: 2rem;
+    object-fit: contain;
   }
 
   &-Title {
     font-weight: bold;
+    height: fit-content;
+  }
+
+  &-Subtitle {
+    height: fit-content;
   }
 }
