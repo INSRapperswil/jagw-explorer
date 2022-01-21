@@ -4,6 +4,7 @@ import './App.css';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import MeasurementsOverview from './components/MeasurementsOverview/MeasurementsOverview';
+import WindowTooSmallMessage from './components/WindowTooSmallMessage/WindowTooSmallMessage';
 import RouteHandler from './RouteHandler';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Router>
         <RouteHandler />
       </Router>
+      <WindowTooSmallMessage />
       <Footer />
     </div>
   );

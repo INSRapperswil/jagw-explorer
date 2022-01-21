@@ -1,12 +1,23 @@
+@import '../../css/settings.scss';
+
 .Footer {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 100vw;
   padding: 3rem 0rem;
   border-top: 1px solid var(--black);
   flex-shrink: 0;
 
   &-Column {
     margin: 0rem 3rem;
+  }
+}
+
+@media screen and (max-width: $breakpoint-two) {
+  .Footer {
+    &-Column {
+      margin: 0rem 1rem;
+      word-wrap: break-word;
+    }
   }
 }

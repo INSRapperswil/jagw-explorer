@@ -1,3 +1,5 @@
+@import '../../css/settings.scss';
+
 .SearchBar {
   font-size: inherit;
   width: 100rem;
@@ -19,5 +21,11 @@
     align-items: flex-start;
     margin-bottom: 1rem;
     text-transform: uppercase;
+  }
+}
+
+@media screen and (max-width: $breakpoint-one) {
+  .SearchBar {
+    width: 50rem;
   }
 }

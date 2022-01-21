@@ -1,3 +1,5 @@
+@import '../../css/settings.scss';
+
 .CodeBlock {
   margin: 5rem 0rem;
 
@@ -39,6 +41,14 @@
 
     & code {
       word-wrap: break-word;
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-one) {
+  .CodeBlock {
+    & pre {
+      display: none;
     }
   }
 }

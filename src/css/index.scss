@@ -29,3 +29,21 @@ body {
   height: inherit;
   min-height: inherit;
 }
+
+@media screen and (max-width: $breakpoint-two) {
+  .Content {
+    display: none;
+  }
+  .WindowTooSmallMessage {
+    display: inline;
+  }
+}
+
+@media screen and (max-width: $breakpoint-three) {
+  .Header {
+    opacity: 0;
+  }
+  .Footer {
+    opacity: 0;
+  }
+}

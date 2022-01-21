@@ -1,0 +1,21 @@
+.WindowTooSmallMessage {
+  display: none;
+  width: 100vw;
+  word-wrap: break-word;
+  margin-top: -30rem;
+
+  &-Img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  & > p:not(last-child) {
+    margin-bottom: 0rem;
+  }
+
+  & > p {
+    margin: 0rem 1rem;
+    font-weight: bold;
+  }
+}

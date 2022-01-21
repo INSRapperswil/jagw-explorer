@@ -1,3 +1,5 @@
+@import '../../css/settings.scss';
+
 .MenuItem {
   margin: 0rem 10rem;
 
@@ -9,5 +11,11 @@
     &:hover {
       color: var(--theme);
     }
+  }
+}
+
+@media screen and (max-width: $breakpoint-one) {
+  .MenuItem {
+    margin: auto;
   }
 }

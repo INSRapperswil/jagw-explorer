@@ -1,3 +1,5 @@
+@import '../../css/settings.scss';
+
 .Header {
   position: relative;
   font-size: inherit;
@@ -10,9 +12,8 @@
   &-LogoContainer {
     position: absolute;
     top: 3.5rem;
-    left: 2rem;
+    left: 3.5rem;
     height: 7rem;
-    width: 30rem;
   }
 
   &-Menu {
@@ -20,5 +21,24 @@
     justify-content: center;
     align-items: center;
     flex-grow: 1;
+    margin: auto 28rem;
+  }
+}
+
+@media screen and (max-width: $breakpoint-one) {
+  .Header {
+    height: 18rem;
+
+    &-Menu {
+      margin: 14rem auto 0rem auto;
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-two) {
+  .Header {
+    &-Menu {
+      display: none;
+    }
   }
 }

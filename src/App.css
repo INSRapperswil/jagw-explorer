@@ -5,6 +5,7 @@
   text-align: center;
   height: inherit;
   min-height: inherit;
+  min-width: 600px;
 }
 
 .App-logo {

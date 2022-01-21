@@ -1,3 +1,5 @@
+@import '../../css/settings.scss';
+
 .BackButton {
   display: flex;
   align-items: flex-start;
@@ -16,5 +18,11 @@
   &-Icon {
     margin-right: 2rem;
     font-size: 3.2rem;
+  }
+}
+
+@media screen and (max-width: $breakpoint-one) {
+  .BackButton {
+    margin-top: 0rem;
   }
 }
