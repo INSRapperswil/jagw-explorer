@@ -1,7 +1,12 @@
 .Home {
   &-ExternalLinks {
-    margin-top: 10rem;
     display: flex;
     justify-content: center;
+  }
+
+  &-ArrowDown {
+    font-size: 3rem;
+    margin: 5rem auto;
+    color: var(--black);
   }
 }

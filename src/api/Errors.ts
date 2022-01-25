@@ -22,3 +22,12 @@ export const getErrorMessage = (err: RpcError): ErrorMessage => {
     grpcErrorMessage: err.message,
   };
 };
+
+export const createErrorForNoEndpointConfigured = (): ErrorMessage => {
+  return {
+    title: 'No Endpoint configured!',
+    userMessage: 'Please head to the home page to configure your endpoint.',
+    grpcErrorCode: -1,
+    grpcErrorMessage: '',
+  };
+};

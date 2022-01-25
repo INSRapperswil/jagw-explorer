@@ -1,0 +1,32 @@
+.SplashScreen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+
+  & .HeaderLogo {
+    width: 50rem;
+
+    &-Jalapeno {
+      animation: jalapenoColorChanger 3s linear infinite;
+    }
+
+    &-MagnifyingGlass {
+      animation: magnifyingGlassColorChanger 3s linear infinite;
+    }
+  }
+}
+
+@keyframes jalapenoColorChanger {
+  50% {
+    fill: var(--black);
+  }
+}
+
+@keyframes magnifyingGlassColorChanger {
+  50% {
+    fill: var(--theme);
+  }
+}

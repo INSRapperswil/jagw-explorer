@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import { FetchMeasurements } from '../../api/Api';
 import { Measurement } from '../../model';
@@ -34,6 +34,8 @@ const MeasurementsOverview = (
   useEffect(() => {
     filterBySearch();
   }, [searchTerm]);
+
+  useEffect(() => {});
 
   useEffect(() => {
     setRefreshBtnRef(React.createRef<HTMLButtonElement>());
@@ -103,3 +105,4 @@ const MeasurementsOverview = (
 };
 
 export default withPopup(MeasurementsOverview);
+//

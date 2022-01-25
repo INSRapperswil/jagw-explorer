@@ -7,7 +7,7 @@ import {
   createMeasurements,
 } from '../model/typeConverters';
 
-import { getErrorMessage } from './Errors';
+import { createErrorForNoEndpointConfigured, getErrorMessage } from './Errors';
 import { RequestServiceClient } from './jagw/requestservice/RequestserviceServiceClientPb';
 import {
   MeasurementDetailsRequest,
@@ -16,18 +16,25 @@ import {
   MeasurementsResponse,
 } from './jagw/requestservice/requestservice_pb';
 
-const server =
-  'http://' +
-  process.env.REACT_APP_JAGW_SERVER_ADDRESS +
-  ':' +
-  process.env.REACT_APP_JAGW_REQUEST_SERVICE_PORT;
+var rsClient: RequestServiceClient | undefined = undefined;
 
-const rsClient = new RequestServiceClient(server, null, null);
+export const SetupEndpoint = (endpoint?: string): void => {
+  if (endpoint) {
+    rsClient = new RequestServiceClient('http://' + endpoint, null, null);
+  } else {
+    rsClient = undefined;
+  }
+};
 
 export const FetchMeasurements = (
   callback: (measurements: Measurement[], err?: ErrorMessage) => void,
 ): void => {
   const request = new MeasurementsRequest();
+
+  if (!rsClient) {
+    callback([], createErrorForNoEndpointConfigured());
+    return;
+  }
 
   rsClient.getMeasurements(
     request,
@@ -53,6 +60,11 @@ export const FetchMeasurementDetails = (
 ): void => {
   const request = new MeasurementDetailsRequest();
   request.setName(measurementName);
+
+  if (!rsClient) {
+    callback({} as MeasurementDetails, createErrorForNoEndpointConfigured());
+    return;
+  }
 
   rsClient.getMeasurementDetails(
     request,

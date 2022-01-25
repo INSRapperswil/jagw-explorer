@@ -1,21 +1,25 @@
+import { useEffect, useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
+import { SetupEndpoint } from './api/Api';
 import './App.css';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
-import MeasurementsOverview from './components/MeasurementsOverview/MeasurementsOverview';
 import WindowTooSmallMessage from './components/WindowTooSmallMessage/WindowTooSmallMessage';
+import EndpointProvider from './EndpointProvider';
 import RouteHandler from './RouteHandler';
 
-function App() {
+function App(): JSX.Element {
   return (
     <div className="App">
-      <Header />
-      <Router>
-        <RouteHandler />
-      </Router>
-      <WindowTooSmallMessage />
-      <Footer />
+      <EndpointProvider>
+        <Header />
+        <Router>
+          <RouteHandler />
+        </Router>
+        <WindowTooSmallMessage />
+        <Footer />
+      </EndpointProvider>
     </div>
   );
 }

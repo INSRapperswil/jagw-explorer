@@ -1,7 +1,11 @@
 import './Home.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
+
 import topologyIcon from '../../assets/network-topology-icon.svg';
 import telemetryIcon from '../../assets/performance-icon.svg';
 import ImgLink from '../ImgLink/ImgLink';
+import EndpointInput from '../EndpointInput/EndpointInput';
 
 const Home = (): JSX.Element => {
   return (
@@ -21,20 +25,23 @@ const Home = (): JSX.Element => {
           </a>
           .
         </p>
-        <div className="Home-ExternalLinks">
-          <ImgLink
-            title="Topology Data"
-            link="/topology"
-            alt="Topology Icon"
-            imgPath={topologyIcon}
-          />
-          <ImgLink
-            title="Telemetry Data"
-            link="/telemetry"
-            alt="Telemetry Icon"
-            imgPath={telemetryIcon}
-          />
-        </div>
+      </div>
+      <FontAwesomeIcon className="Home-ArrowDown" icon={faArrowDown} />
+      <EndpointInput />
+      <FontAwesomeIcon className="Home-ArrowDown" icon={faArrowDown} />
+      <div className="Home-ExternalLinks">
+        <ImgLink
+          title="Topology Data"
+          link="/topology"
+          alt="Topology Icon"
+          imgPath={topologyIcon}
+        />
+        <ImgLink
+          title="Telemetry Data"
+          link="/telemetry"
+          alt="Telemetry Icon"
+          imgPath={telemetryIcon}
+        />
       </div>
     </div>
   );
