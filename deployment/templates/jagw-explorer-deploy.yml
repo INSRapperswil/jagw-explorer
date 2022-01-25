@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.jagwExplorerService.name }}
+spec:
+  replicas: {{ .Values.jagwExplorerService.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.jagwExplorerService.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.jagwExplorerService.name }}
+    spec:
+      containers:
+      - name: {{ .Values.jagwExplorerService.name }}
+        image: {{ .Values.jagwExplorerService.image.repository }}:{{ .Values.jagwExplorerService.image.tag }}
+        imagePullPolicy: {{ .Values.jagwExplorerService.image.pullPolicy }}
+        ports:
+        - containerPort: 80

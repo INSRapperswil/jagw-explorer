@@ -1,0 +1,8 @@
+jagwExplorerService:
+  name: jagw-explorer
+  replicas: 1
+  image:
+    repository: insost/jagw-explorer
+    pullPolicy: Always
+    tag: v1.0.0
+  nodePort: 31000

@@ -1,0 +1,10 @@
+apiVersion: v3
+name: jagw-explorer
+description: A Helm chart for the Jalapeño API Gateway Explorer
+maintainers:
+  - name: Michel Bongard
+    email: michel.bongard@ost.ch
+    url: www.michelbongard.ch
+type: application
+version: v1.0.0
+appVersion: v1.0.0
