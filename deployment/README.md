@@ -6,14 +6,16 @@ This directory contains the [Helm](https://helm.sh/) chart for the deployment wi
 
 ### Installing the chart
 
+To deploy the **Jalapeño API Gateway Explorer** with Helm, clone this repository and then run:
+
 ```bash
-$ helm install <release-name> jagw --namespace <namespace>
+$ helm install <release-name> <path-to-this-directory> --namespace <namespace>
 ```
 
 ### Updating the chart
 
 ```bash
-$ helm upgrade <release-name> jagw --namespace <namespace>
+$ helm upgrade <release-name> <path-to-this-directory> --namespace <namespace>
 ```
 
 ### Uninstalling the chart
