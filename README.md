@@ -20,7 +20,7 @@ $ docker pull insost/jagw-explorer
 Then start a new container with:
 
 ```bash
-$ docker run --name jagw-explorer -p 8080:80 -d insost/jagw-explorer:latest
+$ docker run --name jagw-explorer -p 8080:80 -d insost/jagw-explorer
 ```
 
 `-p` maps the host port `8080` to the container port `80`. Change port `8080` to any port you like.
